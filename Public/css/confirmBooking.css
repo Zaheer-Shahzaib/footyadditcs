@@ -1,0 +1,8 @@
+.confirmedBookingContainer >.bi-check-circle-fill{
+    color: #50A853;
+    font-size: 10rem;
+}
+.confirmedBookingContainer{
+    background-color: #FFFF;
+    
+}

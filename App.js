@@ -57,4 +57,31 @@ app.get('/main_page', verifyToken,  (req, res) => {
 app.get('/pages/games', (req, res) => {
   res.render('games.ejs')
 })
+app.get('/booknow', (req, res) => {
+  res.render('book_now.ejs')
+})
+app.get('/admin-login', (req, res) => {
+  res.render('adminLogin.ejs')
+})
+app.get("/edit-profile", (req, res) => {
+  res.render("editProfile.ejs");
+});
+app.get("/upcoming-bookings", (req, res) => {
+  res.render("upcomingBooking.ejs");
+});
+app.get("/sports-facilities", (req, res) => {
+  res.render("addSportsFacility.ejs");
+});
+app.get("/make-payment", (req, res) => {
+  res.render("makePayment.ejs");
+});
+app.get("/booking-success", (req, res) => {
+  res.render("confirmBooking.ejs");
+});
+app.get("/booking-cancel", (req, res) => {
+  res.render("bookingCancel.ejs");
+});
+app.get("/reschedule", (req, res) => {
+  res.render("reschedule.ejs");
+});
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

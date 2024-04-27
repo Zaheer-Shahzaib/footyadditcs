@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/payment_method.css" />
+    <link rel="stylesheet" href="/css/makePayment.css" />
     <link rel="stylesheet" href="/css/index.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
@@ -20,7 +20,7 @@
 <body class="whiteBody">
     <header class="paymentMethodHeader">
         <div class="colorLogoContainer d-flex align-items-center justify-content-around closeableHeader">
-            <a href="/booknow"><i class="bi bi-x-lg"></i></a>
+            <a href="/card"><i class="bi bi-x-lg"></i></a>
             <h1>Payment Method</h1>
             <i class="bi bi-person-circle"></i>
         </div>
@@ -31,16 +31,13 @@
       </div>
     </header>
     <main class="homePageMainContainer h100vh d-flex flex-column py-4">
-       <button type="button" class="appleLoginBtn">
-           <span>Pay with <i class="bi bi-apple fs-3 mx-2"></i> Pay</span>
-          </button>
-          <button type="button" class="googleLoginBtn">
-            Pay with Google
-          </button>
-          <a href="" class="signupBtn mt-3">Buy with <i class="bi bi-paypal"></i> <span class="pay">Pay</span><span class="pal">Pal</span></a>
           <div class="paymentMethodBottomCont d-flex flex-column justify-content-between align-items-center h-50">
           <div class="addCard">
-            <a href="/card" class="d-flex align-items-center justify-content-between"><i class="bi bi-plus-lg"></i> <span>Add Credit/Debit Card</span> <i class="bi bi-credit-card-2-front-fill"></i></a>
+            <a href="/payment_method" class="d-flex align-items-center justify-content-between"><i class="bi bi-plus-lg"></i> <span>Add Payment Method</span> <i class="bi bi-credit-card-2-front-fill"></i></a>
+            <div class="paymentCardsList">
+                <i class="bi bi-credit-card-2-front-fill"></i>
+                <input type="text" value="****00000" readonly>
+            </div>
           </div>
            <a href="" class="signupBtn">Make Payment</a>
            </div>
