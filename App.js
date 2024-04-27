@@ -48,7 +48,7 @@ app.get("/logout", (req, res) => {
 });
 
 app.get('/card', (req, res) => {
-  res.render('card.ejs')
+  res.render('card.ejs')  
 })
 app.get('/index', verifyToken,  (req, res) => {
   res.render('index.ejs')

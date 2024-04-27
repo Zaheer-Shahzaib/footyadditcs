@@ -91,7 +91,7 @@ login_router.post("/login", validator, async (req, res, next) => {
         res.cookie("userId", existingUser.id);
         // console.log( res.cookie('userId', existingUser.id));
         // var lastVisit = cookies.get('LastVisit', { signed: true })
-        res.redirect("/about");
+        res.redirect("/index");
       }
     } catch (error) {
       console.error("Error:", error);
