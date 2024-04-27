@@ -1,0 +1,19 @@
+.bi-paypal, .pay{
+    color: #222D65
+}
+.pal{
+    color: #4E9CD7;
+}
+.addCard{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+.addCard > a{
+    text-decoration: none;
+    border-bottom: 1px solid black;
+}
+.addCard > a > .bi-plus-lg,.addCard >  a > .bi-credit-card-2-front-fill{
+    font-size: 2rem !important;
+    color: #000000;
+}

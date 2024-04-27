@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #273469;
+    height: 100vh;
+  }
+  .whiteBody {
+    background-color: #ffff !important;
+  }
+  p {
+    margin: 0;
+  }
+  .h100vh {
+    height: 100vh;
+  }
+  .graytext {
+    color: #5d5d5d;
+    text-align: center;
+  }
+  a {
+    color: inherit;
+  }
+  .colorLogoContainer {
+    background-color: #cfd2df !important;
+  }
+  .smallLogo {
+    width: auto !important;
+    height: 22vh !important;
+  }
+  .closeableHeader {
+    height: 10vh !important;
+  }
+  .closeableHeader > * {
+    color: #ffff!important;
+  }
+  .closeableHeader > .bi-x-lg,.closeableHeader >
+  .bi-person-circle {
+    font-size: 1.9rem !important;
+    font-weight: 900 !important;
+  }
+  .signupBtn {
+    display: block;
+    width: 95%;
+    background-color: #f1b715;
+    border-radius: 2rem;
+    padding: 0.6rem;
+    font-weight: 700;
+    text-decoration: none;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .logoImage {
+    mix-blend-mode: multiply;
+    filter: contrast(2);
+    width: 100%;
+  }
+  .FormContainer {
+    background-color: white;
+  }
+  
+  .inputContainer {
+    background-color: #f4f2f2;
+    width: 95%;
+    margin: 0.5rem auto;
+    border-radius: 0.5rem;
+  }
+  .inputContainer > input,
+  select,
+  textarea {
+    background-color: transparent;
+    padding: 1rem;
+    width: 90%;
+    outline: none;
+    border: none;
+  }
+  
+  .facebookLoginBtn,
+  .appleLoginBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 0.4rem;
+    border-radius: 0.5rem;
+    width: 95%;
+    margin: 0.5rem auto;
+    color: #ffff;
+    font-size: 1.2rem;
+  }
+  .facebookLoginBtn {
+    background-color: #3f77f3;
+  }
+  .appleLoginBtn {
+    background-color: #000000;
+  }
+  .googleLoginBtn {
+    transition: background-color 0.3s, box-shadow 0.3s;
+    padding: 0.75rem 0.4rem;
+    border-radius: 0.5rem;
+    width: 95%;
+    margin: 0.5rem auto;
+    border: none;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+    font-size: 1.2rem;
+  
+    color: #757575;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 50px;
+  
+    &:hover {
+      box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+    }
+  
+    &:active {
+      background-color: #eeeeee;
+    }
+  
+    &:focus {
+      outline: none;
+      box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
+        0 0 0 3px #c8dafc;
+    }
+  }
+  
+  .footerSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem 0;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    margin-top: auto;
+    background-color: #273469;
+    position: fixed;
+    bottom: 0;
+    width: -webkit-fill-available;
+  }
+  .footerIconContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footerIconContainer > * {
+    color: #676d75;
+    font-weight: 600;
+  }
+  .footerIconContainer > i {
+    font-size: 1.5rem;
+    &:active {
+      color: #f1b715;
+    }
+  }
+  
