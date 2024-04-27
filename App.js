@@ -50,7 +50,7 @@ app.get("/logout", (req, res) => {
 app.get('/card', (req, res) => {
   res.render('card.ejs')
 })
-app.get('/index', verifyToken,  (req, res) => {
+app.get('/main_page', verifyToken,  (req, res) => {
   res.render('index.ejs')
 })
 
