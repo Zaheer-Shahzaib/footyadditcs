@@ -25,29 +25,42 @@
     </header>
     <main class="homePageMainContainer h100vh">
         <div class="FormContainer d-flex flex-column">
-            <div class="inputContainer">
-                <select name="sport" id="sport">
-                    <option value="" disabled selected>Choose a Sport</option>
-                    <option value="football">Football</option>
-                    <option value="basketball">Basketball</option>
-                    <option value="tennis">Tennis</option>
-                </select>
-            </div>
-            <div class="inputContainer">
-                <input type="date" placeholder="Choose a Date">
-            </div>
-            <div class="inputContainer">
-                <input type="time" placeholder="Choose a Date">
-            </div>
-            <div class="inputContainer">
-                <input type="text" placeholder="Enter Address">
-            </div>
-            <div class="inputContainer">
-                <textarea name="notes" placeholder="Additional Notes" id="notes" cols="30" rows="4"></textarea>
-         </div>
-         <a href="/paymentMethod.html" class="signupBtn bookNowBtn">Book Now</a>
+            <form action="/booking" method="post">
+                <% if(typeof alert != 'undefined') { %>
+                    <% alert.forEach(function(error) { %>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <%= error.msg %>
+                          </div>
+                    <% }) %>
+                <% } %>
+                <div class="inputContainer">
+                    <select name="sport" id="sport">
+                        <option value="" disabled selected>Choose a Sport</option>
+                        <option value="football">Football</option>
+                        <option value="basketball">Basketball</option>
+                        <option value="tennis">Tennis</option>
+                    </select>
+                </div>
+                <div class="inputContainer">
+                    <input type="date" name="date" placeholder="Choose a Date">
+                </div>
+                <div class="inputContainer">
+                    <input type="time" name="time" placeholder="Choose a Date">
+                </div>
+                <div class="inputContainer">
+                    <input type="text" name="address" placeholder="Enter Address">
+                </div>
+                <div class="inputContainer">
+                    <textarea name="additionalNote" placeholder="Additional Notes" id="notes" cols="30"
+                        rows="4"></textarea>
+                </div>
+                <button type="submit" class="signupBtn bookNowBtn">Book Now</button>
+
+            </form>
+
         </div>
     </main>
     <%- include('components/footer.ejs') %>
-  </body>
+</body>
+
 </html>

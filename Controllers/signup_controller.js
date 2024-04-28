@@ -5,6 +5,7 @@ const user_model = require('../Models/user_model')
 const express = require('express')
 const signup_router = express.Router();
 const bodyParser = require('body-parser')
+const validation = require('../utils/signup_error');
 const { check, validationResult, body } = require('express-validator');
 
 signup_router.use(bodyParser.urlencoded({ extended: true }))
@@ -14,21 +15,8 @@ signup_router.get('/signup', function (req, res) {
     res.render('signup.ejs')
 
 });
-const validation = [
-    body('email', 'Email must be valid').isEmail()
-        .exists()
-        .custom(async value => {
-            const existingUser = await user_model.findOne({ where: { email: value } });
-            if (existingUser) {
-                // Will use the below as the error message
-                throw new Error('A user already exists with this email address');
-            }
-        }),
-    check('password', 'Password must be eight characters, at least one uppercase letter, one lowercase letter, one number and one special character')
-        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/),
-]
 
-signup_router.post('/signup', validation, async (req, res, next) => {
+signup_router.post('/signup', validation , async (req, res, next) => {
     //destructing 
     const { firstName, lastName, password, phone, email } = req.body
 

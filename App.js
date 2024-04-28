@@ -29,10 +29,11 @@ app.use(
 const signup_router = require("./Controllers/signup_controller");
 const loginRouter = require("./Controllers/login_controller");
 const { verifyToken } = require("./middlerwares/auth");
-
+const booking_route = require("./Controllers/booking_controller");
+//routes
 app.use(signup_router);
 app.use(loginRouter);
-
+app.use(booking_route)
 app.get("/", (req, res) => {
   res.render("start_page.ejs");
 });
@@ -50,11 +51,9 @@ app.get("/logout", (req, res) => {
 app.get('/card', (req, res) => {
   res.render('card.ejs')
 })
-app.get('/main_page', verifyToken,  (req, res) => {
+app.get('/main_page', verifyToken, (req, res) => {
   res.render('index.ejs')
 })
 
-app.get('/pages/games', (req, res) => {
-  res.render('games.ejs')
-})
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

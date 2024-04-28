@@ -1,12 +1,13 @@
 const sequelize = require('./index');
 const { DataTypes, Model } = require('sequelize');
 const crypto = require('crypto');
+const Booking = require('./booking');
 
 // Define the User model
 
 class User extends Model {
     static associations(model) {
-        
+
     }
     createResetPasswordToken() {
         const resetToken = crypto.randomBytes(32).toString('hex')
@@ -23,16 +24,16 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    email:{
-        type:DataTypes.STRING,
-        allowNull:false,
-        unique:true
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
     phone: {
         type: DataTypes.STRING,
         allowNull: false
     },
-  
+
     firstName: {
         type: DataTypes.STRING,
         allowNull: false
@@ -41,7 +42,10 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    
+    roles: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     token: {
         type: DataTypes.STRING,
     },
@@ -60,10 +64,11 @@ User.init({
     modelName: 'Users' // We need to choose the model name
 });
 
-// User.hasOne(user_profile_seller, {
-//     onDelete: 'RESTRICT',
-//     onUpdate: 'RESTRICT'
-// });
+User.hasOne(Booking, {
+    onDelete: 'RESTRICT',
+    onUpdate: 'RESTRICT'
+});
+
 
 // the defined model is the class itself
 

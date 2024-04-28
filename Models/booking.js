@@ -1,6 +1,7 @@
 const sequelize = require('./index');
 const { DataTypes, Model } = require('sequelize');
 const crypto = require('crypto');
+const User = require('./user_model');
 
 // Define the User model
 
@@ -31,7 +32,7 @@ Booking.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    additonalNote: {
+    additionalNote: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -42,10 +43,6 @@ Booking.init({
     modelName: 'Booking' // We need to choose the model name
 });
 
-// User.hasOne(user_profile_seller, {
-//     onDelete: 'RESTRICT',
-//     onUpdate: 'RESTRICT'
-// });
 
 // the defined model is the class itself
 
