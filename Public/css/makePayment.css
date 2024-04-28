@@ -27,12 +27,6 @@
   color: black;
   font-size: 1.3rem;
 }
-.bi-paypal, .pay{
-    color: #222D65
-}
-.pal{
-    color: #4E9CD7;
-}
 .addCard{
     width: 90%;
     margin: 0 auto;
@@ -41,8 +35,17 @@
 .addCard > a{
     text-decoration: none;
     border-bottom: 1px solid black;
+      font-size: 1.5rem;
 }
-.addCard > a > .bi-plus-lg,.addCard >  a > .bi-credit-card-2-front-fill{
+.addCard > a > .bi-plus-lg,.addCard >  a > .bi-credit-card-2-front-fill, .paymentCardsList > .bi-credit-card-2-front-fill{
     font-size: 2rem !important;
     color: #000000;
+}
+.paymentCardsList{
+    border-bottom: 1px solid black;
+
+}
+.paymentCardsList > input{
+    font-size: 1.5rem;
+    margin-left: 10px;
 }

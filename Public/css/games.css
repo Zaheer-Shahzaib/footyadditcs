@@ -1,0 +1,57 @@
+.gamesList {
+  background-color: #ffffff;
+}
+.gamesList > h1 {
+  font-size: 2.2rem;
+}
+.gamesList > h1 + h3 {
+  color: #273469;
+  font-weight: 700;
+}
+.gameDetailContainer {
+  width: 95%;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 2rem;
+  border: 2px solid #273469;
+  box-shadow: 5px 7px 5px -2px #d9d9d9;
+}
+.gameDetailsContBtns {
+  text-align: end;
+}
+.gameDetailsContBtns > a ,.gameDetailsContBtns > button {
+  text-decoration: none;
+  font-weight: 700;
+  color: rgb(147, 145, 145);
+  margin: 0 1rem;
+  background-color: transparent;
+}
+
+
+.gameDate {
+  background-color: #e1e1e1;
+  padding: 1rem;
+}
+.gameAddress{
+    width: 100%;
+}
+.gameAddress > P{
+    color: #000 ;
+}
+.cancelBookingAlert {
+  background-color: #fff;
+      width: 80%;
+  height: auto;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 2rem;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  visibility: hidden;
+  z-index: 10000;
+}
+.cancelBookingAlert > button:nth-child(3) {
+  background-color: transparent;
+  border: 1px solid black;
+}
