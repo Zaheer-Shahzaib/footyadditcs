@@ -1,4 +1,4 @@
-const booking_model = require("../Models/booking")
+const booking_model = require("../Models/booking.js")
 const express = require('express')
 const { verifyToken } = require("../middlerwares/auth")
 const booking_route = express.Router()

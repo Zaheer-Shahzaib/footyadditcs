@@ -31,10 +31,12 @@ const loginRouter = require("./Controllers/login_controller");
 const { verifyToken } = require("./middlerwares/auth");
 const booking_route = require("./Controllers/booking_controller");
 const router = require("./Controllers/logout_controller");
+const gamesRouter = require("./Controllers/Games");
 //routes
 app.use(signup_router);
 app.use(loginRouter);
 app.use(booking_route)
+app.use(gamesRouter)
 app.get("/", (req, res) => {
   res.render("start_page.ejs");
 });
