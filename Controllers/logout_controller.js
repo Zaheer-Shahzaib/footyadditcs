@@ -10,7 +10,7 @@ const router = express.Router();
 //                 res.render("404pg.ejs")
 //         }
 //     })
-router.get('/logout', async (req, res) => {
+router.post('/logout', async (req, res) => {
         // If the user is loggedin
         res.clearCookie('token')
         res.clearCookie('userId')

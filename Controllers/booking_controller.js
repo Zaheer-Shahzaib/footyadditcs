@@ -23,6 +23,8 @@ booking_route.post("/booking", bookingError, async (req, res) => {
         // Extract booking data from request body
         const { sport, date, time, address, additionalNote } = req.body;
 
+    // Check for existing booking with the same date
+   
         // Create booking object
         const newBooking = {
             UserId: req.cookies.userId, // Assuming you have 'req.user.id' set
@@ -38,10 +40,10 @@ booking_route.post("/booking", bookingError, async (req, res) => {
 
         // Handle successful booking creation
         console.log("Booking created successfully:", createdBooking);
-        res.redirect("/card"); // Assuming this redirects to the payment page
+        res.redirect("/make-payment"); // Assuming this redirects to the payment page
     } catch (error) {
         console.error("Error creating booking:", error);
-        throw new Error("Something went wrong!")
+        throw Error("Something went wrong!")
     }
 });
 

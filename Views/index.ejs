@@ -32,17 +32,15 @@
       </div>
       <i class="bi bi-person-circle"></i>  
       <input type="checkbox" id="profileCheck" />
-      <div class="profileListMenu d-flex flex-column">
-        <a href="/edit-profile">Edit Profile</a>
-        <a href="">Logout</a>
-      </div>
+      <%- include('components/header.ejs') %>
+
     </header>
     <main class="homePageMainContainer d-flex flex-column justify-content-end">
       <h1>
         Empower Play: <br />
         Where every kid scores!
       </h1>
-      <a href="/booknow" class="signupBtn bookNowBtn">Book Now</a>
+      <a href="/booking" class="signupBtn bookNowBtn">Book Now</a>
     </main>
     <%- include('components/footer.ejs') %>
 

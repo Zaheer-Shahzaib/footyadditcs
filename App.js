@@ -30,6 +30,7 @@ const signup_router = require("./Controllers/signup_controller");
 const loginRouter = require("./Controllers/login_controller");
 const { verifyToken } = require("./middlerwares/auth");
 const booking_route = require("./Controllers/booking_controller");
+const router = require("./Controllers/logout_controller");
 //routes
 app.use(signup_router);
 app.use(loginRouter);
@@ -43,7 +44,7 @@ app.get("/payment_method", (req, res) => {
 });
 
 
-app.get("/logout", (req, res) => {
+app.get(router, (req, res) => {
   res.clearCookie("token");
   res.redirect("/login");
 });
@@ -58,25 +59,25 @@ app.get('/main_page', verifyToken, (req, res) => {
 app.get('/admin-login', (req, res) => {
   res.render('adminLogin.ejs')
 })
-app.get("/edit-profile", (req, res) => {
+app.get("/edit-profile", verifyToken, (req, res) => {
   res.render("editProfile.ejs");
 });
-app.get("/upcoming-bookings", (req, res) => {
+app.get("/upcoming-bookings", verifyToken, (req, res) => {
   res.render("upcomingBooking.ejs");
 });
-app.get("/sports-facilities", (req, res) => {
+app.get("/sports-facilities", verifyToken, (req, res) => {
   res.render("addSportsFacility.ejs");
 });
 app.get("/make-payment", (req, res) => {
   res.render("makePayment.ejs");
 });
-app.get("/booking-success", (req, res) => {
+app.get("/booking-success", verifyToken, (req, res) => {
   res.render("confirmBooking.ejs");
 });
-app.get("/booking-cancel", (req, res) => {
+app.get("/booking-cancel", verifyToken,(req, res) => {
   res.render("bookingCancel.ejs");
 });
-app.get("/reschedule", (req, res) => {
+app.get("/reschedule", verifyToken, (req, res) => {
   res.render("reschedule.ejs");
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

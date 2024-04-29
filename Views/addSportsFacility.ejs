@@ -32,10 +32,8 @@
       </div>
       <i class="bi bi-person-circle"></i>
       <input type="checkbox" id="profileCheck" />
-      <div class="profileListMenu d-flex flex-column">
-        <a href="/edit-profile">Edit Profile</a>
-        <a href="">Logout</a>
-      </div>
+      <%- include('components/header.ejs') %>
+
     </header>
     <main class="homePageMainContainer h100vh">
       <form action="/booknow" method="post">
