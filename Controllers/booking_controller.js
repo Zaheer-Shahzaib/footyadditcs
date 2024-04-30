@@ -12,6 +12,8 @@ booking_route.get("/booking", verifyToken, (req, res) => {
 })
 
 
+
+
 booking_route.post("/booking", bookingError, async (req, res) => {
     // Validate request body
     const errors = validationResult(req);
