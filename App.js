@@ -33,6 +33,7 @@ const booking_route = require("./Controllers/booking_controller");
 const router = require("./Controllers/logout_controller");
 const gamesRouter = require("./Controllers/Games");
 //routes
+app.use(router)
 app.use(signup_router);
 app.use(loginRouter);
 app.use(booking_route)
@@ -53,10 +54,6 @@ app.get("/payment_method", (req, res) => {
 });
 
 
-app.get(router, (req, res) => {
-  res.clearCookie("token");
-  res.redirect("/login");
-});
 
 app.get('/card', (req, res) => {
   res.render('card.ejs')

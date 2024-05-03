@@ -75,7 +75,7 @@ gamesRouter.post('/deleteGame/:id', async (req, res) => {
     }
 });
 
-gamesRouter.get('/reschedule/:id', validation, async (req, res) => {
+gamesRouter.post('/reschedule/:id', validation, async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(422).render('reschedule.ejs', { alert: errors.array() });
