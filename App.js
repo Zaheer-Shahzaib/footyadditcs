@@ -19,7 +19,7 @@ app.use(
   session({
     secret: process.env.JWT_SCERET_KEY,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: { secure: false },
   })
 );
@@ -38,7 +38,14 @@ app.use(loginRouter);
 app.use(booking_route)
 app.use(gamesRouter)
 app.get("/", (req, res) => {
-  res.render("start_page.ejs");
+  // Check for existing session and logged-in state
+  if (req.session && req.session.isLoggedIn) {
+    console.log("Session exists, redirecting to main page");
+    return res.redirect("/main_page"); // Use return to avoid further execution
+  } 
+  // If no session or not logged in, redirect to login page
+  console.log("Session not found or user not logged in, redirecting to login");
+  res.redirect("/login");
 });
 
 app.get("/payment_method", (req, res) => {

@@ -65,7 +65,6 @@ gamesRouter.post('/deleteGame/:id', async (req, res) => {
             }
         });
 
-
         // Check if deletion was successful (affected rows should be 1)
         if (deletedGame === 1) {
             res.redirect("/games");
@@ -77,19 +76,16 @@ gamesRouter.post('/deleteGame/:id', async (req, res) => {
 });
 
 gamesRouter.get('/reschedule/:id', validation, async (req, res) => {
-    res.render("reschedule.ejs")
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(422).render('reschedule.ejs', { alert: errors.array() });
     }
-
     try {
         // Extract game ID from request parameters
         const gameId = req.params.id;
+        console.log(gameId);
         // Extract reschedule details from request body (replace with your actual fields)
         const { newDate, newTime } = req.body;
-
-
         const updatedGame = await Booking.update({
             date: newDate,
             time: newTime
@@ -98,7 +94,6 @@ gamesRouter.get('/reschedule/:id', validation, async (req, res) => {
                 id: gameId
             }
         });
-
         // Check if update was successful (affected rows should be 1)
         if (updatedGame[0] === 1) {
             res.redirect("/games")

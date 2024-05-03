@@ -33,11 +33,19 @@
 
           <% } else { %>
             <% data.forEach(data=>{ %>
-             
+              <div class="cancelBookingAlert">
+                <h2>You're about to cancel this booking</h2>
+                <form action="/deleteGame/<%= data.id %>" method="post">
+                  <button type="submit" class="signupBtn my-4">Yes, Cancel this booking</button>
+
+                </form>
+                <button class="signupBtn cancelAlertDialouge">
+                  No, I'll keep this booking
+                </button>
+              </div>
               <div class="gameDetailContainer m-2" >
                 <div class="gameDetailsContBtns">
                   <button class="cancelBtn">Cancel</button>
-                  
                   <a href="/reschedule/<%= data.id %>">Edit</a>
                 </div>
                 <div class="d-flex align-items-center">
@@ -62,16 +70,7 @@
 
       </div>
     </div>
-    <div class="cancelBookingAlert">
-      <h2>You're about to cancel this booking</h2>
-      <form action="/deleteGame/<%= data.id %>" method="post">
-        <button type="submit" class="signupBtn my-4">Yes, Cancel this booking</button>
-
-      </form>
-      <button class="signupBtn cancelAlertDialouge">
-        No, I'll keep this booking
-      </button>
-    </div>
+  
   </main>
 
   <script>
