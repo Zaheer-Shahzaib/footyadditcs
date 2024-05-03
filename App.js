@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
   } 
   // If no session or not logged in, redirect to login page
   console.log("Session not found or user not logged in, redirecting to login");
-  res.redirect("/login");
+  res.render("/start_page.js");
 });
 
 app.get("/payment_method", (req, res) => {
