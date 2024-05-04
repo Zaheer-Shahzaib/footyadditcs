@@ -32,12 +32,15 @@ const { verifyToken } = require("./middlerwares/auth");
 const booking_route = require("./Controllers/booking_controller");
 const router = require("./Controllers/logout_controller");
 const gamesRouter = require("./Controllers/Games");
+const payment_method_router = require("./Controllers/payment_controller");
+const Booking = require("./Models/booking");
 //routes
 app.use(router)
 app.use(signup_router);
 app.use(loginRouter);
 app.use(booking_route)
 app.use(gamesRouter)
+app.use(payment_method_router)
 app.get("/", (req, res) => {
   // Check for existing session and logged-in state
   if (req.session && req.session.isLoggedIn) {
@@ -54,10 +57,6 @@ app.get("/payment_method", (req, res) => {
 });
 
 
-
-app.get('/card', (req, res) => {
-  res.render('card.ejs')
-})
 app.get('/main_page', verifyToken, (req, res) => {
   res.render('index.ejs')
 })
@@ -83,7 +82,5 @@ app.get("/booking-success", verifyToken, (req, res) => {
 app.get("/booking-cancel", verifyToken,(req, res) => {
   res.render("bookingCancel.ejs");
 });
-app.get("/reschedule", verifyToken, (req, res) => {
-  res.render("reschedule.ejs");
-});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

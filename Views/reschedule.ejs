@@ -33,12 +33,12 @@
           </div>
           <% }) %>
             <% } %>
-              <form action="" method="post" class="w-100 h-100">
+              <form action="/reschedule/<%= id %>" method="post" class="w-100 h-100">
                 <div class="inputContainer">
-                  <input type="date" name="date" />
+                  <input type="date" name="newDate" id="newDate" />
                 </div>
                 <div class="inputContainer">
-                  <input type="time" name="time" />
+                  <input type="time" name="newTime" id="newTime"  />
                 </div>
                 <button type="submit" class="signupBtn my-5">Confirm Booking</button>
               </form>

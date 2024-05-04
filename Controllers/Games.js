@@ -7,7 +7,7 @@ const gamesRouter = express.Router()
 
 const validation = [
 
-    body('date')
+    body('newDate')
         .notEmpty()
         .withMessage('Date is required')
         .custom((value, { req }) => {
@@ -18,22 +18,12 @@ const validation = [
             }
             return true
         }),
-    check('time')
-        .not()
-        .isEmpty()
-        .withMessage('Please Select Time').custom((value, { req }) => {
-            const existingTime = Booking.findOne({ where: { time: value } })
-            const bodytime = req.body.time
-
-            if (existingTime == bodytime) {
-                throw new Error("Already Booking...!")
-            }
-            return true
-        }),
-
-
-
 ];
+
+gamesRouter.get("/reschedule/:id", validation, verifyToken, async (req, res) => {
+    const id =req.params.id
+    res.render("reschedule.ejs", {id:id});
+  });
 
 gamesRouter.get("/games", verifyToken, async (req, res) => {
     try {
@@ -75,35 +65,37 @@ gamesRouter.post('/deleteGame/:id', async (req, res) => {
     }
 });
 
-gamesRouter.post('/reschedule/:id', validation, async (req, res) => {
+gamesRouter.post('/reschedule/:id', async (req, res) => {
+    const gameId = req.params.id;
+    console.log("post schedule", gameId);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(422).render('reschedule.ejs', { alert: errors.array() });
     }
+    
     try {
         // Extract game ID from request parameters
-        const gameId = req.params.id;
-        console.log(gameId);
-        // Extract reschedule details from request body (replace with your actual fields)
+        
+        
+        // Extract reschedule details from request body
         const { newDate, newTime } = req.body;
-        const updatedGame = await Booking.update({
-            date: newDate,
-            time: newTime
-        }, {
-            where: {
-                id: gameId
-            }
-        });
+        console.log("body request", newDate, newTime)
+        // Update the booking using Sequelize
+        const updatedCount = await Booking.findOne({where:{id: gameId}});
+        console.log("update successful", updatedCount);
+        
+       const updatedSchedule = {
+        date:newDate,
+        time: newTime
+       }
+       await updatedCount.update(updatedSchedule)
         // Check if update was successful (affected rows should be 1)
-        if (updatedGame[0] === 1) {
+        if (updatedCount) {
             res.redirect("/games")
-        } else {
-            res.status(404).json({ error: 'Game not found or update failed.' });
-        }
+        } 
     } catch (error) {
         console.error("Error rescheduling game:", error);
         res.status(500).json({ error: 'An error occurred while rescheduling the game.' });
     }
 });
-
 module.exports = gamesRouter

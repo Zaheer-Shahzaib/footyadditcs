@@ -29,27 +29,29 @@
 
     </header>
     <main class="homePageMainContainer h-75">
-        <form action="/card" method="post" class=" h-100 d-flex flex-column justify-content-between"> 
-        <div class="cardDetailsContainer">
-            <div class="addCard">
-                <label for="cardNumber">Card number</label>
-                <div class="inputContainer px-2 d-flex align-items-center"><i
-                        class="bi bi-credit-card-2-front-fill fs-3"></i><input type="text" name="cardNumber"></div>
+        <form action="/create-payment" method="post" class=" h-100 d-flex flex-column justify-content-between">
+            <div class="cardDetailsContainer">
+                <div class="addCard">
+                    <label for="cardNumber">Card number</label>
+                    <div class="inputContainer px-2 d-flex align-items-center"><i
+                            class="bi bi-credit-card-2-front-fill fs-3"></i>
+                            <input type="number" required name="cardNumber" placeholder="4344 **** **** **** 7744"></div>
 
-            </div>
-            <div class="cardInfoCont d-flex align-items-center">
-                <div class="expiryContainer d-flex flex-column align-items-center">
-                    <label for="expiryDate">Expiry Date</label>
-                    <div class="inputContainer">
-                    <input type="text" placeholder="MM/YY" name="expiryDate"></div>
                 </div>
-                <div class="cvvContainer d-flex flex-column align-items-center">
-                    <label for="cvv">CVV</label>
-                    <div class="inputContainer"><input type="number" placeholder="123" name="cvv"></div>
+                <div class="cardInfoCont d-flex align-items-center">
+                    <div class="expiryContainer d-flex flex-column align-items-center">
+                        <label for="expiryDate">Expiry Date</label>
+                        <div class="inputContainer">
+                            <input type="date" placeholder="MM/YY"  required name="expiryDate">
+                        </div>
+                    </div>
+                    <div class="cvvContainer d-flex flex-column align-items-center">
+                        <label for="cvv">CVV</label>
+                        <div class="inputContainer"><input type="number" required placeholder="123" name="cvv"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <button type="submit" class="signupBtn">Add</button>
+            <button type="submit" class="signupBtn">Add</button>
         </form>
     </main>
     <%- include('components/footer.ejs') %>
