@@ -53,7 +53,7 @@ signup_router.post('/signup', validation , async (req, res, next) => {
             email,
             firstName,
             lastName,
-            roles: 'user',
+            roles: 'User',
             password: hashPassword,
 
         }

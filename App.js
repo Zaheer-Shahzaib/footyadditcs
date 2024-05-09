@@ -34,6 +34,7 @@ const router = require("./Controllers/logout_controller");
 const gamesRouter = require("./Controllers/Games");
 const payment_method_router = require("./Controllers/payment_controller");
 const Booking = require("./Models/booking");
+const adminRouter = require("./Controllers/admin_controler");
 //routes
 app.use(router)
 app.use(signup_router);
@@ -41,6 +42,7 @@ app.use(loginRouter);
 app.use(booking_route)
 app.use(gamesRouter)
 app.use(payment_method_router)
+app.use(adminRouter)
 app.get("/", (req, res) => {
   // Check for existing session and logged-in state
   if (req.session && req.session.isLoggedIn) {
@@ -49,7 +51,7 @@ app.get("/", (req, res) => {
   } 
   // If no session or not logged in, redirect to login page
   console.log("Session not found or user not logged in, redirecting to login");
-  res.render("/start_page.js");
+  res.render("start_page.ejs");
 });
 
 app.get("/payment_method", (req, res) => {
@@ -61,9 +63,10 @@ app.get('/main_page', verifyToken, (req, res) => {
   res.render('index.ejs')
 })
 
-app.get('/admin-login', (req, res) => {
+app.get('/admin', (req, res) => {
   res.render('adminLogin.ejs')
 })
+
 app.get("/edit-profile", verifyToken, (req, res) => {
   res.render("editProfile.ejs");
 });

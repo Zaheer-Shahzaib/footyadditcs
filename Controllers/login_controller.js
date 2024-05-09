@@ -63,4 +63,51 @@ login_router.post("/login", validator, async (req, res, next) => {
   next();
 });
 
+
+login_router.post("/admin_login", validator, async (req, res, next) => {
+  const { email, password } = req.body;
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const alert = errors.array();
+    res.render("adminLogin.ejs", { alert });
+  } else {
+    try {
+      const existingUser = await user_model.findOne({
+        where: { email: email, roles: 'admin' },
+      });
+      
+      if ( !existingUser.roles) {
+        // Handle the case where the user does not exist
+        res.status(404).json({Error: "User is not a admin please contact with support to provide the admin rights"})
+      } else {
+        const token = jwt.sign(
+          { id: existingUser.id },
+          process.env.JWT_SCERET_KEY,
+          {
+            expiresIn: "12000sec",
+          }
+        );
+
+        req.user = {
+          roles: existingUser.roles,
+          id: existingUser.id,
+          email: existingUser.email,
+        };
+        req.session.isLoggedIn = true;
+        res.cookie("token", token, { httpOnly: true });
+        // req.session.userId = existingUser.id;
+        res.cookie("adminuserId", existingUser.id);
+        // console.log( res.cookie('userId', existingUser.id));
+        // var lastVisit = cookies.get('LastVisit', { signed: true })
+        res.redirect("/upcoming-bookings");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      res.status(404).json({Error: "Something went wrong....!"})
+    }
+  }
+  next();
+});
+
 module.exports = login_router;

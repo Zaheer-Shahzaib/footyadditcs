@@ -44,6 +44,7 @@ User.init({
     },
     roles: {
         type: DataTypes.STRING,
+        ENUM: ['User, Admin'],
         allowNull: false
     },
     token: {

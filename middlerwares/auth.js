@@ -16,13 +16,12 @@ const verifyToken = (req, res, next) => {
     next(); // Continue to the protected route
   });
 }
-const restricted = (roles) => {
+const restricted = (allowedRoles) => { // Use an array for allowed roles
   return (req, res, next) => {
-    if (!roles.includes(req.user.roles == "Buyer")){
-      res.status(403).json({ message: 'You do not have access to this route' });
-    } else {
-      next();
+    if (!req.user || !allowedRoles.includes(req.user.roles)) { // Check for user existence and role
+      return res.status(403).json({ message: 'You do not have access to this route' });
     }
+    next();
   };
 };
 

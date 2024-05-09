@@ -57,7 +57,7 @@ gamesRouter.post('/deleteGame/:id', async (req, res) => {
 
         // Check if deletion was successful (affected rows should be 1)
         if (deletedGame === 1) {
-            res.redirect("/games");
+            res.redirect("/booking-cancel");
         }
     } catch (error) {
         console.error("Error deleting game:", error);
